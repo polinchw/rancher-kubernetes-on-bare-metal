@@ -27,7 +27,17 @@ Replace the **--server** and **--token** with your Rancher server and cluster to
 
 sudo apt update
 sudo apt -y dist-upgrade
+
+#Ubuntu (Docker install)
 sudo apt -y install docker.io
+
+#Debian 9 (Docker install)
+sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo apt update
+sudo apt -y install docker-ce
+
 #This is only needed if you are using Ubuntu, if you are using Debian 9 then you don't need the linux-image-extra
 sudo apt -y install linux-image-extra-$(uname -r)
 #This is dependent on your Rancher server
