@@ -46,9 +46,9 @@ export KUBECONFIG=$HOME/.kube/rancher-config
 ### Install Helm on the cluster
 
 ```
-git clone http://gitlab.gvllab.windstream.net/polinchakb/docker-nginx-helloworld
+git clone https://github.com/polinchw/set-up-tiller
 
-cd docker-ngnix-helloworld
+cd set-up-tiller
 
 chmod u+x set-up-tiller.sh
 
