@@ -9,6 +9,7 @@ Create a VM with Docker and Docker Compose installed and install Rancher 2.0 wit
  [docker-compose.yaml](https://github.com/polinchw/rancher-docker-compose/blob/master/docker-compose.yaml)
 
 + Run this command:
+    +  ```git clone https://github.com/polinchw/rancher-docker-compose ```
     +  ```docker-compose up -d```
 
 ### Create your Kubernetes cluster with Rancher
