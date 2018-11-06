@@ -15,7 +15,7 @@ Create a VM with Docker and Docker Compose installed and install Rancher 2.0 wit
 
 Install a custom Kubernetes cluster with Rancher.
 
-#### Create VMs for Kubernetes and join the Kubernetes cluster
+### Create VMs for Kubernetes and join the Kubernetes cluster
 
 Run the following commands on all the VMs that your Kubernetes cluster will run on.  The final docker command
 will have the VM join the new Kubernetes cluster.
