@@ -30,7 +30,7 @@ sudo apt -y dist-upgrade
 sudo apt -y install docker.io
 #This is only needed if you are using Ubuntu, if you are using Debian 9 then you don't need the linux-image-extra
 sudo apt -y install linux-image-extra-$(uname -r)
-#This is dependant on your Rancher server
+#This is dependent on your Rancher server
 sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.1.0-rc9 --server https://75.77.159.159 --token rb8k8kkqw55jqnqbbf4ssdjqtw6hndhfxxcghgv8257kx4p6qsqq55 --ca-checksum 641b2888ce3f1091d20149a495d10457154428f440475b42291b6af1b6c0dd06 --etcd --controlplane --worker
 ```
 
