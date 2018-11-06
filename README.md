@@ -6,7 +6,7 @@
 Create a VM with Docker and Docker Compose installed and install Rancher 2.0 with docker compose:
 
 + Download this file to a VM:
- [docker-compose.yaml](http://gitlab.gvllab.windstream.net/polinchakb/rancher-docker-compose/blob/master/docker-compose.yaml)
+ [docker-compose.yaml](https://github.com/polinchw/rancher-docker-compose/blob/master/docker-compose.yaml)
 
 + Run this command:
     +  ```docker-compose up -d```
