@@ -15,7 +15,9 @@ Create a VM with Docker and Docker Compose installed and install Rancher 2.0 wit
 
 ### Create your Kubernetes cluster with Rancher
 
-Install a custom Kubernetes cluster with Rancher.
+Install a custom Kubernetes cluster with Rancher.  Use the 'Custom' cluster.
+
+![Cluster!](images/rancher.png)
 
 ### Create VMs for Kubernetes and join the Kubernetes cluster
 
