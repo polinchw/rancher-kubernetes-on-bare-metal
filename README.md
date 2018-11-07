@@ -1,4 +1,12 @@
-## Deploying Kubernetes on bare metal with Rancher 2.0
+# Deploying Kubernetes on bare metal with Rancher 2.0
+
+## Contents
+
++ Install Rancher server
++ Create a Kubernetes cluster
++ Add Kubernetes nodes
++ Install StorageOS as the Kubernetes storage class
++ Understand Nginx Ingress in Rancher
 
 
 ### Install Rancher
@@ -19,7 +27,7 @@ Install a custom Kubernetes cluster with Rancher.  Use the 'Custom' cluster.
 
 ![Cluster!](images/rancher.png)
 
-### Create VMs for Kubernetes and join the Kubernetes cluster
+### Add Kubernetes nodes and join the Kubernetes cluster
 
 Run the following commands on all the VMs that your Kubernetes cluster will run on.  The final docker command
 will have the VM join the new Kubernetes cluster.
