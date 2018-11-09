@@ -99,7 +99,7 @@ kubectl patch storageclass fast -p '{"metadata": {"annotations":{"storageclass.k
 
 ### Using the default Nginx Igress
 
-Rancher automatically install the nginx ingress controller on all the nodes in the cluster.  
+Rancher automatically installs the nginx ingress controller on all the nodes in the cluster.  
 If you are able to expose one of the VMs in the cluster to the outside world with a public IP
 then you can connect to the ingress based services on ports 80 and 443.
 
