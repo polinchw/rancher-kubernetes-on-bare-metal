@@ -45,11 +45,11 @@ sudo apt -y install docker.io
 sudo apt -y install linux-image-extra-$(uname -r)
 
 #Debian 9 (Docker install)
-sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-sudo apt update
-sudo apt -y install docker-ce
+#sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+#curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+#sudo apt update
+#sudo apt -y install docker-ce
 
 #This is dependent on your Rancher server
 sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.1.0-rc9 --server https://75.77.159.159 --token rb8k8kkqw55jqnqbbf4ssdjqtw6hndhfxxcghgv8257kx4p6qsqq55 --ca-checksum 641b2888ce3f1091d20149a495d10457154428f440475b42291b6af1b6c0dd06 --etcd --controlplane --worker
