@@ -37,11 +37,11 @@ Replace the **--server** and **--token** with your Rancher server and cluster to
 ```
 #!/bin/bash
 
-sudo apt update
-sudo apt -y dist-upgrade
+#sudo apt update
+#sudo apt -y dist-upgrade
 
 #Ubuntu (Docker install)
-sudo apt -y install docker.io
+#sudo apt -y install docker.io
 sudo apt -y install linux-image-extra-$(uname -r)
 
 #Debian 9 (Docker install)
@@ -50,6 +50,15 @@ sudo apt -y install linux-image-extra-$(uname -r)
 #sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 #sudo apt update
 #sudo apt -y install docker-ce
+
+sudo mkdir -p /etc/systemd/system/docker.service.d/
+sudo cat <<EOF > /etc/systemd/system/docker.service.d/mount_propagation_flags.conf
+[Service]
+MountFlags=shared
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
 
 #This is dependent on your Rancher server
 sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.1.0-rc9 --server https://75.77.159.159 --token rb8k8kkqw55jqnqbbf4ssdjqtw6hndhfxxcghgv8257kx4p6qsqq55 --ca-checksum 641b2888ce3f1091d20149a495d10457154428f440475b42291b6af1b6c0dd06 --etcd --controlplane --worker
@@ -80,17 +89,28 @@ helm init --service-account tiller
 
 ```
 
-### Install StorageOS storage class
-
-Install StorageOS as a daemonset with CSI and RBAC support.  Make sure your
-kubectl context is pointing to the new Kubernete's cluster context.
+### Install StorageOS Helm Chart
 
 ```
-git clone https://github.com/storageos/deploy.git storageos
+helm repo add storageos https://charts.storageos.com
+helm install storageos/storageoscluster-operator --namespace storageos-operator
+```
 
-cd storageos/k8s/deploy-storageos/CSI
+## Add the Storage OS Secret
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: storageos-api
+  namespace: default
+  labels:
+    app: storageos
+type: kubernetes.io/storageos
+data:
+  # echo -n '<secret>' | base64
+  apiUsername: c3RvcmFnZW9z
+  apiPassword: c3RvcmFnZW9z
 
-./deploy-storageos.sh
 ```
 
 ### Set StorageOS as the default storage class
