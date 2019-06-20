@@ -42,6 +42,7 @@ Replace the **--server** and **--token** with your Rancher server and cluster to
 
 #Ubuntu (Docker install)
 #sudo apt -y install docker.io
+
 sudo apt -y install linux-image-extra-$(uname -r)
 
 #Debian 9 (Docker install)
@@ -112,6 +113,22 @@ data:
   apiPassword: c3RvcmFnZW9z
 
 ```
+
+## Add the StorageOSCluster
+```
+apiVersion: storageos.com/v1
+kind: StorageOSCluster
+metadata:
+  name: example-storageos
+  namespace: default
+spec:
+  secretRefName: storageos-api
+  secretRefNamespace: default
+  csi:
+    enable: true
+
+```
+
 
 ### Set StorageOS as the default storage class
 
