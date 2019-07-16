@@ -94,7 +94,7 @@ helm init --service-account tiller
 
 ```
 helm repo add storageos https://charts.storageos.com
-helm install storageos/storageoscluster-operator --namespace storageos-operator
+helm install --name storageos --namespace storageos-operator --version 1.1.3 storageos/storageoscluster-operator
 ```
 
 ## Add the Storage OS Secret
